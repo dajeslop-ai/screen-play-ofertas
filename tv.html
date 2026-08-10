@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>PUBLI SCREEN TV v0.8.1</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="tv-page">
+  <main id="pairView" class="tv-pair-view">
+    <p class="tv-brand">PUBLI SCREEN</p>
+    <h1>Vincula esta televisión</h1>
+    <p>Escribe este código en el panel:</p>
+    <div id="pairingCode" class="pairing-code">------</div>
+    <p id="pairStatus">Esperando conexión…</p>
+  </main>
+
+  <main id="emptyView" class="tv-empty-view hidden">
+    <p class="tv-brand">PUBLI SCREEN</p>
+    <h1>Televisión vinculada</h1>
+    <p>Agrega una oferta desde el panel.</p>
+  </main>
+
+  <main id="offerView" class="tv-offer-view two-offer-mode hidden">
+    <div id="tvBackground" class="tv-background"></div>
+    <div class="tv-background-shade"></div>
+
+    <aside id="floatingClock" class="floating-clock">
+      <strong id="tvClock">--:--</strong>
+      <span id="tvDate">---</span>
+    </aside>
+
+    <div id="slideCounter" class="pair-counter">1 / 1</div>
+
+    <section id="contentStage" class="content-stage">
+      <article id="noticeScreen" class="notice-screen hidden">
+        <div id="noticeImageFrame" class="notice-image-frame">
+          <img id="noticeImage" alt="Aviso">
+        </div>
+        <div class="notice-copy">
+          <span class="notice-label">AVISO</span>
+          <h1 id="noticeTitle">Aviso</h1>
+          <p id="noticeDescription"></p>
+          <div id="noticeCta" class="notice-cta-full">MÁS INFORMACIÓN</div>
+        </div>
+      </article>
+
+      <section id="summaryScreen" class="summary-screen hidden">
+        <div id="summaryGrid" class="summary-grid"></div>
+      </section>
+
+      <section id="offersWindow" class="offers-window transition-fade hidden">
+        <article id="offerCard1" class="compact-offer-card">
+          <div class="compact-image-frame"><img id="offerImage1" alt="Producto"></div>
+          <div class="compact-offer-copy">
+            <span class="compact-label">OFERTA ESPECIAL</span>
+            <h2 id="offerTitle1">Producto</h2><p id="offerDescription1"></p>
+            <div class="compact-prices">
+              <div class="compact-before"><span>ANTES</span><strong id="previousPrice1">$0.00</strong></div>
+              <div class="compact-now"><span>AHORA</span><strong id="currentPrice1">$0.00</strong></div>
+            </div>
+            <div class="compact-saving"><span>AHORRAS</span><strong id="savingPrice1">$0.00</strong></div>
+            <div id="noticeCta1" class="notice-cta hidden"></div>
+          </div>
+        </article>
+        <article id="offerCard2" class="compact-offer-card">
+          <div class="compact-image-frame"><img id="offerImage2" alt="Producto"></div>
+          <div class="compact-offer-copy">
+            <span class="compact-label">OFERTA ESPECIAL</span>
+            <h2 id="offerTitle2">Producto</h2><p id="offerDescription2"></p>
+            <div class="compact-prices">
+              <div class="compact-before"><span>ANTES</span><strong id="previousPrice2">$0.00</strong></div>
+              <div class="compact-now"><span>AHORA</span><strong id="currentPrice2">$0.00</strong></div>
+            </div>
+            <div class="compact-saving"><span>AHORRAS</span><strong id="savingPrice2">$0.00</strong></div>
+            <div id="noticeCta2" class="notice-cta hidden"></div>
+          </div>
+        </article>
+      </section>
+    </section>
+
+    <div id="continuousCarouselHost" class="continuous-carousel-host hidden" aria-hidden="true">
+      <div id="carouselPanelA" class="carousel-panel is-active"></div>
+      <div id="carouselPanelB" class="carousel-panel"></div>
+    </div>
+
+    <div class="tv-recovery-code standalone">TV <strong id="tvRecoveryCode">------</strong></div>
+
+    <footer id="tickerBar" class="ticker-bar">
+      <div id="tickerTrack" class="ticker-track">
+        <span id="tickerTextView">GRANDES OFERTAS TODOS LOS DÍAS</span>
+        <span aria-hidden="true" id="tickerTextClone">GRANDES OFERTAS TODOS LOS DÍAS</span>
+      </div>
+    </footer>
+
+    <div class="tv-progress"><div id="progressBar"></div></div>
+  </main>
+
+  <script type="module" src="tv.js"></script>
+</body>
+</html>

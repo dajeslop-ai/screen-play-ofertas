@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>PUBLI SCREEN Admin</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="admin-page">
+  <main class="admin-shell">
+    <header class="admin-header">
+      <div>
+        <p class="eyebrow">PUBLI SCREEN · REINICIO v0.8.1</p>
+        <h1>Cartelera y apariencia</h1>
+      </div>
+      <span id="connectionBadge" class="badge">Sin TV vinculada</span>
+    </header>
+
+    <section id="appearanceSection" class="panel hidden">
+      <div class="section-title"><div><p class="eyebrow">APARIENCIA DE LA TV</p><h2>Fondo y franja informativa</h2></div></div>
+      <form id="appearanceForm" class="stack">
+        <label for="backgroundMode">Tipo de fondo</label>
+        <select id="backgroundMode">
+          <option value="preset" selected>Fondo predeterminado</option>
+          <option value="image">Imagen personalizada</option>
+          <option value="solid">Color sólido</option>
+          <option value="gradient">Degradado</option>
+        </select>
+
+        <div id="presetBackgroundPanel" class="background-mode-panel">
+          <label>Fondos predeterminados</label>
+          <div id="presetThemeGrid" class="preset-theme-grid">
+            <button type="button" class="preset-theme-card selected" data-theme="clasico">
+              <img src="theme-clasico.png" alt="Clásico">
+              <span>Clásico</span>
+            </button>
+            <button type="button" class="preset-theme-card" data-theme="vacaciones">
+              <img src="theme-vacaciones.png" alt="Vacaciones">
+              <span>Vacaciones</span>
+            </button>
+            <button type="button" class="preset-theme-card" data-theme="regreso-clases">
+              <img src="theme-regreso-clases.png" alt="Regreso a clases">
+              <span>Regreso a clases</span>
+            </button>
+            <button type="button" class="preset-theme-card" data-theme="fiestas-patrias">
+              <img src="theme-fiestas-patrias.png" alt="Fiestas Patrias">
+              <span>Fiestas Patrias</span>
+            </button>
+            <button type="button" class="preset-theme-card" data-theme="halloween">
+              <img src="theme-halloween.png" alt="Halloween">
+              <span>Halloween</span>
+            </button>
+            <button type="button" class="preset-theme-card" data-theme="dia-muertos">
+              <img src="theme-dia-muertos.png" alt="Día de Muertos">
+              <span>Día de Muertos</span>
+            </button>
+            <button type="button" class="preset-theme-card" data-theme="navidad">
+              <img src="theme-navidad.png" alt="Navidad">
+              <span>Navidad</span>
+            </button>
+          </div>
+        </div>
+
+        <div id="imageBackgroundPanel" class="background-mode-panel hidden">
+          <label for="backgroundInput">Imagen de fondo horizontal</label>
+          <input id="backgroundInput" type="file" accept="image/jpeg,image/png,image/webp">
+          <p class="field-help">Recomendado: imagen horizontal 16:9, por ejemplo 1920 × 1080 px.</p>
+        </div>
+
+        <div id="solidBackgroundPanel" class="background-mode-panel hidden">
+          <label for="solidColor">Color del fondo</label>
+          <div class="color-control-row">
+            <input id="solidColor" type="color" value="#073b7a">
+            <input id="solidColorText" type="text" value="#073b7a" maxlength="7" inputmode="text">
+          </div>
+        </div>
+
+        <div id="gradientBackgroundPanel" class="background-mode-panel hidden">
+          <div class="two-columns">
+            <div>
+              <label for="gradientColor1">Color 1</label>
+              <input id="gradientColor1" type="color" value="#123f91">
+            </div>
+            <div>
+              <label for="gradientColor2">Color 2</label>
+              <input id="gradientColor2" type="color" value="#5b21b6">
+            </div>
+          </div>
+          <label for="gradientDirection">Dirección del degradado</label>
+          <select id="gradientDirection">
+            <option value="to right">Horizontal →</option>
+            <option value="to left">Horizontal ←</option>
+            <option value="to bottom">Vertical ↓</option>
+            <option value="to top">Vertical ↑</option>
+            <option value="135deg" selected>Diagonal ↘</option>
+            <option value="45deg">Diagonal ↗</option>
+          </select>
+        </div>
+
+        <label>Vista previa del fondo</label>
+        <div id="backgroundPreview" class="background-preview theme-preview">
+          <span id="backgroundPreviewPlaceholder">Vista previa del fondo</span>
+          <img id="backgroundPreviewImage" alt="Fondo de la TV">
+        </div>
+
+        <label for="tickerText">Texto de la franja inferior</label>
+        <textarea id="tickerText" maxlength="500" placeholder="ACEPTAMOS TARJETAS • ACUMULA PUNTOS • RECARGAS Y PAGO DE SERVICIOS"></textarea>
+
+        <div class="two-columns">
+          <div>
+            <label for="tickerDirection">Dirección</label>
+            <select id="tickerDirection">
+              <option value="left" selected>De derecha a izquierda</option>
+              <option value="right">De izquierda a derecha</option>
+            </select>
+          </div>
+          <div>
+            <label for="tickerSpeed">Velocidad</label>
+            <select id="tickerSpeed">
+              <option value="slow">Lenta</option>
+              <option value="normal" selected>Normal</option>
+              <option value="fast">Rápida</option>
+            </select>
+          </div>
+        </div>
+
+        <label for="transitionStyle">Transición entre pantallas</label>
+        <select id="transitionStyle">
+          <option value="fade" selected>Desvanecimiento</option>
+          <option value="slide-left">Desplazamiento lateral ←</option>
+          <option value="slide-right">Desplazamiento lateral →</option>
+          <option value="zoom-in">Zoom de entrada</option>
+          <option value="zoom-out">Zoom de salida</option>
+          <option value="rise">Subir suavemente</option>
+          <option value="drop">Bajar suavemente</option>
+          <option value="carousel">Carrusel 3D</option>
+          <option value="continuous-carousel">Carrusel continuo</option>
+        </select>
+
+        <div class="presentation-controls-card">
+          <p class="eyebrow">PRESENTACIÓN</p>
+
+          <label class="switch-row summary-switch">
+            <input id="summaryEnabled" type="checkbox" checked>
+            <span>
+              <strong>Pantallas de resumen</strong>
+              <small>Mostrar hasta 6 ofertas antes de verlas de 2 en 2.</small>
+            </span>
+          </label>
+
+          <label>Duración por tipo de pantalla</label>
+          <div class="three-columns duration-grid">
+            <div>
+              <label for="noticeDuration">Avisos</label>
+              <select id="noticeDuration">
+                <option value="5">5 segundos</option>
+                <option value="8">8 segundos</option>
+                <option value="10" selected>10 segundos</option>
+                <option value="15">15 segundos</option>
+                <option value="20">20 segundos</option>
+                <option value="30">30 segundos</option>
+              </select>
+            </div>
+            <div>
+              <label for="summaryDuration">Resumen</label>
+              <select id="summaryDuration">
+                <option value="5">5 segundos</option>
+                <option value="8" selected>8 segundos</option>
+                <option value="10">10 segundos</option>
+                <option value="15">15 segundos</option>
+                <option value="20">20 segundos</option>
+                <option value="30">30 segundos</option>
+              </select>
+            </div>
+            <div>
+              <label for="offersDuration">Ofertas</label>
+              <select id="offersDuration">
+                <option value="5">5 segundos</option>
+                <option value="8">8 segundos</option>
+                <option value="10" selected>10 segundos</option>
+                <option value="15">15 segundos</option>
+                <option value="20">20 segundos</option>
+                <option value="30">30 segundos</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <label class="switch-row">
+          <input id="showClock" type="checkbox" checked>
+          <span>Mostrar hora y fecha</span>
+        </label>
+
+        <div class="appearance-actions">
+          <button id="saveAppearanceButton" class="button primary" type="submit">Guardar apariencia</button>
+          <button id="openPreviewButton" class="button secondary" type="button">Vista previa de TV</button>
+        </div>
+      </form>
+      <p id="appearanceMessage" class="message hidden"></p>
+    </section>
+
+    <section id="pairSection" class="panel">
+      <h2>1. Vincular televisión</h2>
+      <p>Abre <strong>tv.html</strong> en la televisión y escribe aquí el código de seis dígitos.</p>
+      <form id="pairForm" class="stack">
+        <label for="pairCode">Código de la TV</label>
+        <input id="pairCode" inputmode="numeric" maxlength="6" placeholder="000000" required>
+        <button class="button primary" type="submit">Vincular televisión</button>
+      </form>
+      <p id="pairMessage" class="message hidden"></p>
+    </section>
+
+    <section id="offerSection" class="panel hidden">
+      <div class="section-title">
+        <div>
+          <p class="eyebrow">NUEVA PUBLICACIÓN</p>
+          <h2>Crear oferta o aviso</h2>
+        </div>
+        <button id="unlinkButton" class="button ghost" type="button">Desvincular</button>
+      </div>
+
+      <form id="offerForm" class="stack">
+        <label for="contentType">Tipo de publicación</label>
+        <select id="contentType">
+          <option value="offer" selected>Oferta</option>
+          <option value="notice">Aviso</option>
+        </select>
+
+        <label id="titleLabel" for="title">Producto</label>
+        <input id="title" maxlength="60" placeholder="Ej. Coca-Cola" required>
+
+        <label for="description">Descripción</label>
+        <textarea id="description" maxlength="120" placeholder="Ej. Paquete de 2 botellas de 2.5 L"></textarea>
+
+        <div id="priceFields" class="two-columns">
+          <div>
+            <label for="previousPrice">Precio anterior</label>
+            <input id="previousPrice" type="number" min="0" step="0.01" placeholder="45.00" required>
+          </div>
+          <div>
+            <label for="currentPrice">Precio actual</label>
+            <input id="currentPrice" type="number" min="0" step="0.01" placeholder="39.00" required>
+          </div>
+        </div>
+
+        <div id="ctaField" class="hidden">
+          <label for="ctaText">Llamado a la acción</label>
+          <input id="ctaText" maxlength="100" placeholder="Ej. Pide más información en cajas">
+        </div>
+
+        <label for="duration">Duración en TV</label>
+        <select id="duration">
+          <option value="5">5 segundos</option>
+          <option value="8" selected>8 segundos</option>
+          <option value="10">10 segundos</option>
+          <option value="15">15 segundos</option>
+          <option value="20">20 segundos</option>
+        </select>
+
+        <label id="mediaLabel" for="media">Imagen del producto</label>
+        <input id="media" type="file" accept="image/jpeg,image/png,image/webp" required>
+        <p class="field-help">La imagen se sube sin recortes ni transformaciones. En los avisos es opcional.</p>
+
+        <div id="imagePreview" class="admin-image-preview empty">
+          <span>Vista previa</span>
+          <img id="previewImage" alt="Vista previa" class="hidden">
+        </div>
+
+        <button id="saveButton" class="button primary" type="submit">Guardar oferta</button>
+      </form>
+      <p id="offerMessage" class="message hidden"></p>
+    </section>
+
+    <section id="listSection" class="panel hidden">
+      <div class="section-title">
+        <div>
+          <p class="eyebrow">PUBLICACIONES GUARDADAS</p>
+          <h2>Lista de reproducción</h2><p class="field-help">La TV mezcla ofertas y avisos activos siguiendo este orden.</p>
+        </div>
+        <span id="offerCount" class="count">0</span>
+      </div>
+      <div id="offersList" class="offers-list"></div>
+    </section>
+  </main>
+
+
+  <div id="previewModal" class="preview-modal hidden" role="dialog" aria-modal="true" aria-label="Vista previa de TV">
+    <div class="preview-dialog">
+      <div class="preview-toolbar">
+        <div>
+          <strong>Vista previa de TV</strong>
+          <span>La misma presentación que recibe la televisión vinculada.</span>
+        </div>
+        <button id="closePreviewButton" class="button ghost" type="button">Cerrar</button>
+      </div>
+      <div class="preview-frame-wrap">
+        <iframe id="tvPreviewFrame" title="Vista previa de PUBLI SCREEN" allow="autoplay"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="admin.js"></script>
+</body>
+</html>

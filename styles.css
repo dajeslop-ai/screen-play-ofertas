@@ -1,0 +1,2238 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #0f172a;
+  background: #eef3f9;
+}
+
+body {
+  margin: 0;
+}
+
+.hidden {
+  display: none !important;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+.button {
+  display: inline-flex;
+  min-height: 48px;
+  padding: 12px 20px;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 14px;
+  font-weight: 800;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button.primary {
+  color: white;
+  background: #2563eb;
+}
+
+.button.secondary,
+.button.ghost {
+  color: #0f172a;
+  background: #e2e8f0;
+}
+
+.button:disabled {
+  opacity: .6;
+  cursor: wait;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: #2563eb;
+  font-size: .82rem;
+  font-weight: 900;
+  letter-spacing: .16em;
+}
+
+.landing {
+  display: grid;
+  min-height: 100vh;
+  padding: 24px;
+  place-items: center;
+}
+
+.landing-card {
+  width: min(100%, 700px);
+  padding: 42px;
+  border-radius: 28px;
+  background: white;
+  box-shadow: 0 24px 70px rgba(15, 23, 42, .12);
+}
+
+.landing-card h1 {
+  margin: 0;
+  font-size: clamp(2.5rem, 7vw, 5rem);
+}
+
+.landing-card p {
+  color: #64748b;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.landing-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.admin-page {
+  min-height: 100vh;
+  background: #eef3f9;
+}
+
+.admin-shell {
+  width: min(100% - 24px, 920px);
+  margin: 0 auto;
+  padding: 28px 0 70px;
+}
+
+.admin-header {
+  display: flex;
+  margin-bottom: 22px;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.admin-header h1,
+.panel h2 {
+  margin: 0;
+}
+
+.badge,
+.count {
+  display: inline-flex;
+  padding: 10px 14px;
+  border-radius: 999px;
+  color: #475569;
+  background: #e2e8f0;
+  font-weight: 800;
+}
+
+.badge.connected {
+  color: #166534;
+  background: #dcfce7;
+}
+
+.panel {
+  margin-bottom: 22px;
+  padding: 26px;
+  border-radius: 24px;
+  background: white;
+  box-shadow: 0 16px 40px rgba(15, 23, 42, .08);
+}
+
+.stack {
+  display: grid;
+  gap: 12px;
+}
+
+label {
+  margin-top: 5px;
+  font-weight: 800;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 15px 16px;
+  border: 2px solid #d7e0ec;
+  border-radius: 14px;
+  outline: none;
+  background: white;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #2563eb;
+}
+
+textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.two-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.field-help {
+  margin: -4px 0 4px;
+  color: #64748b;
+  font-size: .9rem;
+}
+
+.section-title {
+  display: flex;
+  margin-bottom: 18px;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.message {
+  margin: 16px 0 0;
+  padding: 14px 16px;
+  border-radius: 14px;
+  color: #166534;
+  background: #dcfce7;
+  font-weight: 700;
+}
+
+.message.error {
+  color: #991b1b;
+  background: #fee2e2;
+}
+
+.admin-image-preview {
+  display: grid;
+  min-height: 300px;
+  padding: 14px;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 18px;
+  background: #0f172a;
+}
+
+.admin-image-preview span {
+  color: #94a3b8;
+}
+
+.admin-image-preview img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 420px;
+  object-fit: contain;
+}
+
+.admin-image-preview:not(.empty) span {
+  display: none;
+}
+
+.offers-list {
+  display: grid;
+  gap: 10px;
+}
+
+.offer-list-item {
+  display: grid;
+  grid-template-columns: 72px 1fr auto;
+  min-width: 0;
+  padding: 10px;
+  align-items: center;
+  gap: 14px;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+}
+
+.offer-list-item img {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  border-radius: 10px;
+  background: #f8fafc;
+}
+
+.offer-list-item div {
+  display: grid;
+  min-width: 0;
+  gap: 4px;
+}
+
+.offer-list-item span {
+  color: #64748b;
+}
+
+.icon-button {
+  padding: 10px;
+  border: 0;
+  border-radius: 10px;
+  color: #991b1b;
+  background: #fee2e2;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.empty-list {
+  color: #64748b;
+}
+
+/* TV */
+.tv-page {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(135deg, #163c88, #5922b5);
+}
+
+.tv-pair-view,
+.tv-empty-view {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  padding: 5vw;
+  place-content: center;
+  text-align: center;
+  color: white;
+}
+
+.tv-brand {
+  margin: 0 0 12px;
+  color: #93c5fd;
+  font-weight: 900;
+  letter-spacing: .2em;
+}
+
+.tv-pair-view h1,
+.tv-empty-view h1 {
+  margin: 0;
+  font-size: clamp(3rem, 7vw, 7rem);
+}
+
+.tv-pair-view > p,
+.tv-empty-view > p {
+  font-size: clamp(1.2rem, 2.2vw, 2.2rem);
+}
+
+.pairing-code {
+  margin: 32px auto;
+  padding: 20px 42px;
+  border: 3px solid rgba(255,255,255,.3);
+  border-radius: 24px;
+  background: rgba(255,255,255,.1);
+  font-size: clamp(4rem, 10vw, 10rem);
+  font-weight: 900;
+  letter-spacing: .12em;
+}
+
+.tv-offer-view {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: clamp(18px, 3vh, 34px) clamp(24px, 3vw, 58px) clamp(28px, 4vh, 46px);
+}
+
+.offer-card {
+  display: grid;
+  grid-template-columns: minmax(0, 46%) minmax(0, 54%);
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  gap: clamp(18px, 2.4vw, 42px);
+  padding: clamp(24px, 3vw, 54px);
+  overflow: hidden;
+  border-radius: clamp(24px, 3vw, 50px);
+  background: white;
+  box-shadow: 0 24px 70px rgba(0,0,0,.25);
+}
+
+.offer-copy {
+  display: flex;
+  min-width: 0;
+  min-height: 0;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.offer-label {
+  width: fit-content;
+  padding: 10px 18px;
+  border-radius: 10px;
+  background: #facc15;
+  font-size: clamp(.8rem, 1.2vw, 1.35rem);
+  font-weight: 950;
+}
+
+.offer-copy h1 {
+  margin: clamp(14px, 2vh, 28px) 0 10px;
+  overflow-wrap: anywhere;
+  color: #07142d;
+  font-size: clamp(2.6rem, 5.8vw, 7rem);
+  line-height: .94;
+}
+
+.offer-copy > p {
+  margin: 0 0 clamp(18px, 3vh, 34px);
+  color: #374151;
+  font-size: clamp(1rem, 1.8vw, 2rem);
+  font-weight: 750;
+  line-height: 1.25;
+}
+
+.price-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: min(100%, 650px);
+  gap: clamp(12px, 1.5vw, 24px);
+}
+
+.price-box {
+  display: grid;
+  min-height: clamp(120px, 19vh, 210px);
+  padding: clamp(16px, 2vw, 30px);
+  align-content: center;
+  border-radius: clamp(18px, 2vw, 30px);
+}
+
+.price-box span {
+  font-size: clamp(.85rem, 1.2vw, 1.4rem);
+  font-weight: 950;
+  letter-spacing: .08em;
+}
+
+.price-box strong {
+  font-size: clamp(2.2rem, 4vw, 5rem);
+  line-height: 1;
+}
+
+.price-box.previous {
+  position: relative;
+  color: white;
+  background: #173f8b;
+}
+
+.price-box.previous::after {
+  content: "";
+  position: absolute;
+  left: 12%;
+  right: 12%;
+  bottom: 42%;
+  height: 6px;
+  border-radius: 999px;
+  background: #ef4444;
+  transform: rotate(-10deg);
+}
+
+.price-box.current {
+  background: #fbbf24;
+}
+
+.saving-box {
+  display: flex;
+  width: min(100%, 650px);
+  margin-top: clamp(12px, 2vh, 24px);
+  padding: clamp(14px, 1.7vw, 24px);
+  align-items: baseline;
+  gap: 12px;
+  border-radius: clamp(16px, 2vw, 26px);
+  color: #08783f;
+  background: #dcfce7;
+}
+
+.saving-box span {
+  font-size: clamp(1rem, 1.3vw, 1.55rem);
+  font-weight: 950;
+}
+
+.saving-box strong {
+  font-size: clamp(1.7rem, 2.6vw, 3.2rem);
+}
+
+.offer-image-frame {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  padding: clamp(8px, 1vw, 18px);
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  border-radius: clamp(20px, 2.5vw, 38px);
+  background: white;
+}
+
+.offer-image-frame img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.tv-progress {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 8px;
+  background: rgba(255,255,255,.22);
+}
+
+.tv-progress div {
+  width: 100%;
+  height: 100%;
+  background: #facc15;
+  transform-origin: left;
+}
+
+.slide-counter {
+  position: absolute;
+  top: 18px;
+  right: 28px;
+  color: white;
+  font-size: clamp(1rem, 1.5vw, 1.6rem);
+  font-weight: 900;
+}
+
+@keyframes progress {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+@media (max-width: 700px) {
+  .two-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-header {
+    flex-direction: column;
+  }
+}
+
+@media (max-height: 760px) {
+  .tv-offer-view {
+    padding: 14px 24px 24px;
+  }
+
+  .offer-card {
+    padding: 18px 24px;
+  }
+
+  .offer-copy h1 {
+    font-size: clamp(2.2rem, 4.8vw, 5rem);
+    margin-top: 10px;
+  }
+
+  .offer-copy > p {
+    margin-bottom: 12px;
+  }
+
+  .price-box {
+    min-height: 100px;
+    padding: 13px 18px;
+  }
+
+  .saving-box {
+    margin-top: 10px;
+    padding: 10px 15px;
+  }
+}
+
+
+/* REINICIO v0.2 — LISTA DE REPRODUCCIÓN */
+.offer-list-item {
+  grid-template-columns: 42px 72px minmax(0, 1fr) auto;
+}
+
+.position-number {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  border-radius: 999px;
+  color: #1d4ed8;
+  background: #dbeafe;
+  font-weight: 900;
+}
+
+.offer-list-copy small {
+  color: #64748b;
+}
+
+.offer-list-item.paused {
+  opacity: .62;
+  background: #f8fafc;
+}
+
+.playlist-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(42px, auto));
+  gap: 7px;
+}
+
+.playlist-actions .icon-button {
+  color: #0f172a;
+  background: #e2e8f0;
+}
+
+.playlist-actions .delete-offer {
+  color: #991b1b;
+  background: #fee2e2;
+}
+
+.playlist-actions button:disabled {
+  opacity: .35;
+  cursor: not-allowed;
+}
+
+.offer-image-frame img {
+  opacity: 1;
+  transition: opacity .25s ease;
+}
+
+.offer-image-frame img.changing {
+  opacity: .2;
+}
+
+@media (max-width: 700px) {
+  .offer-list-item {
+    grid-template-columns: 36px 64px minmax(0, 1fr);
+  }
+
+  .playlist-actions {
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.background-preview{display:grid;min-height:280px;padding:12px;place-items:center;overflow:hidden;border-radius:18px;background:#0f172a}
+.background-preview span{color:#94a3b8}.background-preview img{display:block;width:100%;max-height:420px;object-fit:contain}.background-preview:not(.empty) span{display:none}
+.switch-row{display:flex;align-items:center;gap:12px}.switch-row input{width:22px;height:22px}
+.tv-offer-view{position:relative;display:grid;width:100%;height:100%;padding:clamp(28px,4vh,54px) clamp(28px,4vw,72px) clamp(72px,10vh,110px);place-items:center;overflow:hidden;isolation:isolate}
+.tv-background,.tv-background-shade{position:absolute;inset:0;z-index:-3}.tv-background{background-position:center;background-size:cover;background-repeat:no-repeat}.tv-background:not(.has-background){background:linear-gradient(135deg,#163c88,#5922b5)}.tv-background-shade{z-index:-2;background:rgba(4,15,40,.12)}
+.offer-window{display:grid;grid-template-columns:minmax(0,46%) minmax(0,54%);width:min(100%,1720px);height:min(72vh,760px);min-height:0;gap:clamp(18px,2.4vw,42px);padding:clamp(24px,3vw,54px);overflow:hidden;border:1px solid rgba(255,255,255,.65);border-radius:clamp(24px,3vw,50px);background:rgba(255,255,255,.95);box-shadow:0 24px 70px rgba(0,0,0,.28);backdrop-filter:blur(5px)}
+.floating-clock{position:absolute;top:clamp(16px,2.2vh,30px);right:clamp(24px,3vw,56px);display:grid;z-index:5;min-width:150px;padding:12px 18px;justify-items:end;border:1px solid rgba(255,255,255,.35);border-radius:18px;color:#fff;background:rgba(9,20,48,.7);box-shadow:0 10px 24px rgba(0,0,0,.22);backdrop-filter:blur(8px)}
+.floating-clock strong{font-size:clamp(1.5rem,2.2vw,2.7rem);line-height:1}.floating-clock span{margin-top:4px;color:#dbeafe;font-size:clamp(.75rem,1vw,1.05rem);font-weight:750}
+.slide-counter{position:absolute;top:clamp(18px,2.4vh,32px);left:clamp(24px,3vw,56px);z-index:5;padding:10px 15px;border-radius:999px;background:rgba(9,20,48,.66);backdrop-filter:blur(8px)}
+.ticker-bar{position:absolute;right:0;bottom:8px;left:0;z-index:6;height:clamp(52px,7vh,76px);overflow:hidden;border-top:2px solid rgba(255,255,255,.45);border-bottom:2px solid rgba(255,255,255,.45);color:#fff;background:linear-gradient(90deg,#dc2626,#f59e0b);box-shadow:0 -10px 24px rgba(0,0,0,.18)}
+.ticker-track{display:flex;width:max-content;height:100%;align-items:center;gap:80px;white-space:nowrap;font-size:clamp(1.1rem,1.7vw,2rem);font-weight:950;letter-spacing:.04em;will-change:transform}.ticker-track span{display:inline-block;padding-left:40px}
+.ticker-track.running[data-direction="left"]{animation-name:tickerLeft;animation-timing-function:linear;animation-iteration-count:infinite}.ticker-track.running[data-direction="right"]{animation-name:tickerRight;animation-timing-function:linear;animation-iteration-count:infinite}
+.ticker-track.running[data-speed="slow"]{animation-duration:34s}.ticker-track.running[data-speed="normal"]{animation-duration:22s}.ticker-track.running[data-speed="fast"]{animation-duration:13s}
+@keyframes tickerLeft{from{transform:translateX(0)}to{transform:translateX(-50%)}}@keyframes tickerRight{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+.tv-progress{bottom:0;z-index:8}
+@media(max-height:760px){.tv-offer-view{padding:16px 24px 66px}.offer-window{height:min(76vh,650px);padding:18px 24px}.floating-clock{top:8px;right:18px;padding:8px 12px}.slide-counter{top:8px;left:18px}.ticker-bar{height:52px}}
+
+/* v0.3.1 — ajuste visual sobre fondo IA. Motor de imágenes intacto. */
+.tv-offer-view{
+  padding:clamp(150px,18vh,210px) clamp(28px,3vw,58px) clamp(78px,9vh,100px);
+  align-items:center;
+}
+.offer-window{
+  width:min(96%,1720px);
+  height:min(58vh,610px);
+  padding:clamp(20px,2.2vw,38px);
+  gap:clamp(16px,2vw,32px);
+}
+.slide-counter{
+  top:clamp(92px,11vh,122px);
+  left:clamp(22px,2.5vw,44px);
+  padding:7px 13px;
+  font-size:clamp(.9rem,1.15vw,1.25rem);
+  background:rgba(9,20,48,.72);
+  box-shadow:0 7px 18px rgba(0,0,0,.18);
+}
+.floating-clock{
+  top:clamp(92px,11vh,122px);
+  right:clamp(22px,2.5vw,44px);
+  min-width:128px;
+  padding:8px 13px;
+  border-radius:14px;
+}
+.floating-clock strong{font-size:clamp(1.25rem,1.7vw,2rem)}
+.floating-clock span{font-size:clamp(.68rem,.85vw,.9rem)}
+.ticker-bar{bottom:8px}
+.ticker-track{padding-left:100vw}
+.ticker-track.running[data-direction="left"]{animation-name:tickerEnterLeft}
+.ticker-track.running[data-direction="right"]{animation-name:tickerEnterRight}
+@keyframes tickerEnterLeft{
+  from{transform:translateX(0)}
+  to{transform:translateX(calc(-100% - 100vw))}
+}
+@keyframes tickerEnterRight{
+  from{transform:translateX(calc(-100% - 100vw))}
+  to{transform:translateX(0)}
+}
+@media(max-height:760px){
+  .tv-offer-view{padding:110px 24px 64px}
+  .offer-window{height:58vh;padding:16px 22px}
+  .slide-counter{top:70px;left:18px}
+  .floating-clock{top:70px;right:18px}
+}
+
+
+/* v0.3.2 — fondo IA visible, sin barra superior oscura */
+
+/* Recupera el espacio superior para mostrar el encabezado del fondo. */
+.tv-offer-view {
+  padding:
+    clamp(210px, 24vh, 280px)
+    clamp(28px, 3vw, 56px)
+    clamp(84px, 10vh, 104px) !important;
+  align-items: start !important;
+}
+
+/* Ventana de ofertas más baja y compacta. */
+.offer-window {
+  width: min(95%, 1680px) !important;
+  height: min(54vh, 560px) !important;
+  margin-top: 0 !important;
+  padding: clamp(18px, 2vw, 34px) !important;
+  gap: clamp(16px, 1.8vw, 30px) !important;
+  border-radius: clamp(22px, 2.4vw, 42px) !important;
+}
+
+/* Elimina cualquier efecto de franja superior heredado. */
+.slide-counter,
+.floating-clock {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, .2) !important;
+  backdrop-filter: blur(8px) !important;
+}
+
+/* Contador pequeño, sin barra de ancho completo. */
+.slide-counter {
+  top: clamp(170px, 19vh, 220px) !important;
+  left: clamp(22px, 2.5vw, 44px) !important;
+  width: auto !important;
+  min-width: 64px !important;
+  padding: 8px 14px !important;
+  border-radius: 999px !important;
+  font-size: clamp(.9rem, 1.1vw, 1.2rem) !important;
+  line-height: 1 !important;
+  background: rgba(9, 20, 48, .78) !important;
+}
+
+/* Reloj pequeño y flotante. */
+.floating-clock {
+  top: clamp(164px, 18.5vh, 214px) !important;
+  right: clamp(22px, 2.5vw, 44px) !important;
+  min-width: 132px !important;
+  padding: 9px 14px !important;
+  border-radius: 16px !important;
+  background: rgba(9, 20, 48, .78) !important;
+}
+
+.floating-clock strong {
+  font-size: clamp(1.2rem, 1.55vw, 1.8rem) !important;
+}
+
+.floating-clock span {
+  font-size: clamp(.68rem, .8vw, .9rem) !important;
+}
+
+/* Mantiene despejada la zona del noticiero. */
+.ticker-bar {
+  bottom: 8px !important;
+  height: clamp(52px, 6.5vh, 70px) !important;
+}
+
+/* Ajuste especial para TVs 720p/768p. */
+@media (max-height: 800px) {
+  .tv-offer-view {
+    padding:
+      155px
+      24px
+      68px !important;
+  }
+
+  .offer-window {
+    height: 55vh !important;
+    padding: 16px 22px !important;
+  }
+
+  .slide-counter {
+    top: 118px !important;
+    left: 18px !important;
+  }
+
+  .floating-clock {
+    top: 112px !important;
+    right: 18px !important;
+  }
+
+  .ticker-bar {
+    height: 52px !important;
+  }
+}
+
+
+/* ==========================================================
+   REINICIO v0.4 — DOS OFERTAS POR PANTALLA
+   No modifica el motor de carga ni el ajuste de las imágenes.
+   ========================================================== */
+
+.two-offer-mode {
+  display: block !important;
+  padding: 0 !important;
+}
+
+/* Sin barra superior: contador y reloj son cápsulas independientes. */
+.pair-counter {
+  position: absolute;
+  top: clamp(18px, 2.2vh, 28px);
+  left: clamp(22px, 2.5vw, 44px);
+  z-index: 10;
+  width: auto;
+  min-width: 72px;
+  padding: 8px 15px;
+  border-radius: 999px;
+  color: white;
+  background: rgba(7, 20, 49, .78);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, .22);
+  backdrop-filter: blur(8px);
+  font-size: clamp(.9rem, 1.15vw, 1.25rem);
+  font-weight: 900;
+  line-height: 1;
+  text-align: center;
+}
+
+.two-offer-mode .floating-clock {
+  top: clamp(14px, 1.8vh, 24px) !important;
+  right: clamp(22px, 2.5vw, 44px) !important;
+  min-width: 130px !important;
+  padding: 8px 13px !important;
+  border-radius: 15px !important;
+}
+
+/* Deja visible el encabezado diseñado en el fondo IA. */
+.offers-window {
+  position: absolute;
+  top: clamp(220px, 26vh, 300px);
+  right: clamp(28px, 3vw, 54px);
+  bottom: clamp(82px, 9vh, 102px);
+  left: clamp(28px, 3vw, 54px);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(16px, 1.5vw, 28px);
+  min-width: 0;
+  min-height: 0;
+  z-index: 3;
+}
+
+.compact-offer-card {
+  display: grid;
+  grid-template-columns: minmax(0, 42%) minmax(0, 58%);
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, .7);
+  border-radius: clamp(20px, 2vw, 34px);
+  background: rgba(255, 255, 255, .96);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, .22);
+  backdrop-filter: blur(5px);
+}
+
+.compact-image-frame {
+  display: grid;
+  min-width: 0;
+  min-height: 0;
+  padding: clamp(12px, 1.3vw, 22px);
+  place-items: center;
+  overflow: hidden;
+  background: white;
+}
+
+.compact-image-frame img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  object-position: center;
+  opacity: 1;
+  transition: opacity .22s ease;
+}
+
+.compact-image-frame img.changing {
+  opacity: .18;
+}
+
+.compact-offer-copy {
+  display: flex;
+  min-width: 0;
+  min-height: 0;
+  padding: clamp(16px, 1.6vw, 28px);
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.compact-label {
+  width: fit-content;
+  padding: 7px 12px;
+  border-radius: 8px;
+  color: #0f172a;
+  background: #facc15;
+  font-size: clamp(.65rem, .78vw, .9rem);
+  font-weight: 950;
+}
+
+.compact-offer-copy h2 {
+  margin: clamp(8px, 1vh, 13px) 0 4px;
+  overflow: hidden;
+  color: #07142d;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: clamp(1.65rem, 2.3vw, 3rem);
+  line-height: 1;
+}
+
+.compact-offer-copy > p {
+  display: -webkit-box;
+  min-height: 2.3em;
+  margin: 0 0 clamp(10px, 1.2vh, 16px);
+  overflow: hidden;
+  color: #475569;
+  font-size: clamp(.78rem, .95vw, 1.12rem);
+  font-weight: 700;
+  line-height: 1.15;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.compact-prices {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(8px, .8vw, 13px);
+}
+
+.compact-before,
+.compact-now {
+  display: grid;
+  min-width: 0;
+  min-height: clamp(78px, 10vh, 112px);
+  padding: clamp(10px, 1vw, 16px);
+  align-content: center;
+  border-radius: clamp(13px, 1.3vw, 20px);
+}
+
+.compact-before {
+  position: relative;
+  color: white;
+  background: #173f8b;
+}
+
+.compact-before::after {
+  content: "";
+  position: absolute;
+  left: 12%;
+  right: 12%;
+  top: 58%;
+  height: 5px;
+  border-radius: 999px;
+  background: #ef4444;
+  transform: rotate(-9deg);
+}
+
+.compact-now {
+  color: #07142d;
+  background: #fbbf24;
+}
+
+.compact-before span,
+.compact-now span,
+.compact-saving span {
+  font-size: clamp(.62rem, .74vw, .84rem);
+  font-weight: 950;
+  letter-spacing: .06em;
+}
+
+.compact-before strong,
+.compact-now strong {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: clamp(1.55rem, 2vw, 2.7rem);
+  line-height: 1;
+}
+
+.compact-saving {
+  display: flex;
+  min-width: 0;
+  margin-top: clamp(8px, 1vh, 13px);
+  padding: clamp(9px, .9vw, 14px);
+  align-items: baseline;
+  gap: 8px;
+  overflow: hidden;
+  border-radius: clamp(12px, 1.2vw, 18px);
+  color: #08783f;
+  background: #dcfce7;
+}
+
+.compact-saving strong {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: clamp(1.15rem, 1.55vw, 2rem);
+}
+
+/* Cuando queda una oferta sin pareja, ocupa el centro sin ampliar la imagen. */
+.offers-window.single-offer {
+  grid-template-columns: minmax(0, 820px);
+  justify-content: center;
+}
+
+.offers-window.single-offer .compact-offer-card {
+  width: min(100%, 820px);
+}
+
+/* Noticiero y progreso permanecen abajo. */
+.two-offer-mode .ticker-bar {
+  bottom: 8px !important;
+  height: clamp(52px, 6.5vh, 70px) !important;
+}
+
+.two-offer-mode .tv-progress {
+  bottom: 0 !important;
+}
+
+/* TVs 720p y 768p */
+@media (max-height: 800px) {
+  .offers-window {
+    top: 175px;
+    right: 22px;
+    bottom: 66px;
+    left: 22px;
+    gap: 14px;
+  }
+
+  .compact-offer-copy {
+    padding: 13px 16px;
+  }
+
+  .compact-offer-copy h2 {
+    font-size: clamp(1.45rem, 2vw, 2.3rem);
+  }
+
+  .compact-offer-copy > p {
+    margin-bottom: 8px;
+    -webkit-line-clamp: 1;
+  }
+
+  .compact-before,
+  .compact-now {
+    min-height: 72px;
+    padding: 9px 11px;
+  }
+
+  .compact-before strong,
+  .compact-now strong {
+    font-size: clamp(1.35rem, 1.75vw, 2.15rem);
+  }
+
+  .compact-saving {
+    margin-top: 7px;
+    padding: 8px 10px;
+  }
+
+  .two-offer-mode .ticker-bar {
+    height: 50px !important;
+  }
+}
+
+
+/* ==========================================================
+   PUBLI SCREEN v0.4.1 — LAYOUT BASADO EN LA REFERENCIA
+   Mantiene intactos Supabase y el motor de imágenes.
+   ========================================================== */
+
+/* La TV ocupa exactamente el viewport y el fondo nunca se sale. */
+body.tv-page {
+  width: 100%;
+  height: 100%;
+  overflow: hidden !important;
+}
+
+body.tv-page,
+.tv-offer-view {
+  width: 100vw !important;
+  height: 100vh !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+}
+
+.two-offer-mode {
+  position: relative !important;
+  display: block !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  background: #082d6b;
+}
+
+/* El fondo se ajusta completo dentro de la TV, sin desbordarse arriba. */
+.tv-background {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: -3 !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  background-size: 100% 100% !important;
+}
+
+.tv-background-shade {
+  display: none !important;
+}
+
+/* Contador flotante, pequeño y limpio. */
+.pair-counter {
+  position: absolute !important;
+  top: 2.1vh !important;
+  left: 1.5vw !important;
+  z-index: 20 !important;
+  min-width: 76px !important;
+  width: auto !important;
+  padding: .7vh 1vw !important;
+  border: 1px solid rgba(255,255,255,.28) !important;
+  border-radius: 999px !important;
+  color: #fff !important;
+  background: rgba(7,20,49,.86) !important;
+  box-shadow: 0 8px 20px rgba(0,0,0,.24) !important;
+  backdrop-filter: blur(8px) !important;
+  font-size: clamp(.95rem,1.25vw,1.35rem) !important;
+  font-weight: 900 !important;
+  line-height: 1 !important;
+  text-align: center !important;
+}
+
+/* Reloj flotante compacto. */
+.two-offer-mode .floating-clock {
+  position: absolute !important;
+  top: 1.5vh !important;
+  right: 1.4vw !important;
+  z-index: 20 !important;
+  min-width: 150px !important;
+  padding: .8vh .9vw !important;
+  border: 1px solid rgba(255,255,255,.3) !important;
+  border-radius: 18px !important;
+  color: #fff !important;
+  background: rgba(7,20,49,.86) !important;
+  box-shadow: 0 8px 20px rgba(0,0,0,.24) !important;
+  backdrop-filter: blur(8px) !important;
+}
+
+.two-offer-mode .floating-clock strong {
+  font-size: clamp(1.35rem,1.8vw,2.1rem) !important;
+}
+
+.two-offer-mode .floating-clock span {
+  margin-top: 3px !important;
+  font-size: clamp(.7rem,.88vw,.95rem) !important;
+}
+
+/* Área central: dos tarjetas iguales y completamente visibles. */
+.offers-window {
+  position: absolute !important;
+  top: 33.2vh !important;
+  right: 2.6vw !important;
+  bottom: 10.8vh !important;
+  left: 2.6vw !important;
+  z-index: 5 !important;
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 1.35vw !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  overflow: visible !important;
+}
+
+/* Cada tarjeta se divide como en la referencia:
+   imagen a la izquierda y datos a la derecha. */
+.compact-offer-card {
+  display: grid !important;
+  grid-template-columns: minmax(0, 54%) minmax(0, 46%) !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(255,255,255,.8) !important;
+  border-radius: clamp(22px,2vw,36px) !important;
+  background: rgba(255,255,255,.975) !important;
+  box-shadow: 0 18px 45px rgba(0,0,0,.22) !important;
+  backdrop-filter: blur(4px) !important;
+}
+
+/* Imagen completa, centrada y sin alteraciones. */
+.compact-image-frame {
+  display: grid !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  height: 100% !important;
+  padding: clamp(14px,1.4vw,24px) !important;
+  place-items: center !important;
+  overflow: hidden !important;
+  background: #fff !important;
+}
+
+.compact-image-frame img {
+  display: block !important;
+  width: auto !important;
+  height: auto !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+}
+
+/* Columna de información compacta para que nada se corte. */
+.compact-offer-copy {
+  display: flex !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  height: 100% !important;
+  padding: clamp(16px,1.45vw,26px) !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  overflow: hidden !important;
+}
+
+.compact-label {
+  padding: 6px 11px !important;
+  border-radius: 8px !important;
+  font-size: clamp(.62rem,.72vw,.82rem) !important;
+}
+
+.compact-offer-copy h2 {
+  margin: .8vh 0 .35vh !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  font-size: clamp(1.75rem,2.3vw,3rem) !important;
+  line-height: 1 !important;
+}
+
+.compact-offer-copy > p {
+  display: -webkit-box !important;
+  min-height: 0 !important;
+  margin: 0 0 1.2vh !important;
+  overflow: hidden !important;
+  color: #475569 !important;
+  font-size: clamp(.78rem,.95vw,1.12rem) !important;
+  font-weight: 750 !important;
+  line-height: 1.15 !important;
+  -webkit-box-orient: vertical !important;
+  -webkit-line-clamp: 3 !important;
+}
+
+/* Precios apilados verticalmente, como la referencia. */
+.compact-prices {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: .8vh !important;
+}
+
+.compact-before,
+.compact-now {
+  min-height: 0 !important;
+  padding: clamp(9px,.8vw,14px) !important;
+  border-radius: clamp(12px,1vw,18px) !important;
+}
+
+.compact-before strong,
+.compact-now strong {
+  font-size: clamp(1.45rem,1.9vw,2.5rem) !important;
+}
+
+.compact-saving {
+  margin-top: .8vh !important;
+  padding: clamp(8px,.75vw,12px) !important;
+  border-radius: clamp(12px,1vw,18px) !important;
+}
+
+.compact-saving strong {
+  font-size: clamp(1.1rem,1.45vw,1.85rem) !important;
+}
+
+/* Una oferta sin pareja se muestra centrada, sin estirarla. */
+.offers-window.single-offer {
+  grid-template-columns: minmax(0, 920px) !important;
+  justify-content: center !important;
+}
+
+.offers-window.single-offer .compact-offer-card {
+  width: min(100%,920px) !important;
+}
+
+/* Franja inferior fija; el fondo termina justo antes de ella. */
+.two-offer-mode .ticker-bar {
+  position: absolute !important;
+  right: 0 !important;
+  bottom: 1.1vh !important;
+  left: 0 !important;
+  z-index: 30 !important;
+  height: 7.8vh !important;
+  min-height: 54px !important;
+  max-height: 78px !important;
+  overflow: hidden !important;
+}
+
+.two-offer-mode .tv-progress {
+  position: absolute !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  z-index: 31 !important;
+}
+
+/* Mantiene el texto continuo sin desbordar el viewport. */
+.ticker-track {
+  max-width: none !important;
+}
+
+/* Ajuste específico para 1366x768 y 1280x720. */
+@media (max-height: 800px) {
+  .offers-window {
+    top: 32.4vh !important;
+    right: 2.2vw !important;
+    bottom: 9.6vh !important;
+    left: 2.2vw !important;
+    gap: 1.1vw !important;
+  }
+
+  .compact-offer-card {
+    grid-template-columns: minmax(0,55%) minmax(0,45%) !important;
+  }
+
+  .compact-offer-copy {
+    padding: 12px 15px !important;
+  }
+
+  .compact-offer-copy h2 {
+    font-size: clamp(1.45rem,2vw,2.25rem) !important;
+  }
+
+  .compact-offer-copy > p {
+    margin-bottom: 7px !important;
+    font-size: clamp(.72rem,.86vw,.95rem) !important;
+    -webkit-line-clamp: 2 !important;
+  }
+
+  .compact-before,
+  .compact-now {
+    padding: 8px 10px !important;
+  }
+
+  .compact-before strong,
+  .compact-now strong {
+    font-size: clamp(1.3rem,1.7vw,2.05rem) !important;
+  }
+
+  .compact-saving {
+    margin-top: 6px !important;
+    padding: 7px 9px !important;
+  }
+
+  .two-offer-mode .ticker-bar {
+    height: 6.7vh !important;
+    min-height: 48px !important;
+  }
+}
+
+
+/* ==========================================================
+   v0.4.2 — RECUPERA SCROLL Y FIJA DOS COLUMNAS
+   ========================================================== */
+
+/* PANEL: scroll vertical restaurado en teléfono y computadora. */
+html:has(body.admin-page) {
+  width: 100% !important;
+  height: auto !important;
+  min-height: 100% !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+}
+
+body.admin-page {
+  width: 100% !important;
+  height: auto !important;
+  min-height: 100vh !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  touch-action: pan-y !important;
+  overscroll-behavior-y: auto !important;
+}
+
+.admin-shell {
+  min-height: 100vh !important;
+  overflow: visible !important;
+}
+
+/* TV: cuando existen dos ofertas, ambas quedan obligatoriamente
+   en la misma fila y nunca una encima de la otra. */
+.offers-window:not(.single-offer) {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  grid-template-rows: minmax(0, 1fr) !important;
+  grid-auto-flow: column !important;
+  align-items: stretch !important;
+}
+
+.offers-window:not(.single-offer) #offerCard1 {
+  grid-column: 1 !important;
+  grid-row: 1 !important;
+}
+
+.offers-window:not(.single-offer) #offerCard2 {
+  grid-column: 2 !important;
+  grid-row: 1 !important;
+}
+
+/* Una sola oferta usa el centro sin alterar el diseño de dos columnas. */
+.offers-window.single-offer {
+  display: grid !important;
+  grid-template-columns: minmax(0, 920px) !important;
+  grid-template-rows: minmax(0, 1fr) !important;
+  justify-content: center !important;
+}
+
+.offers-window.single-offer #offerCard1 {
+  grid-column: 1 !important;
+  grid-row: 1 !important;
+}
+
+/* Seguridad adicional para que las tarjetas no creen otra fila. */
+.compact-offer-card {
+  max-height: 100% !important;
+  align-self: stretch !important;
+}
+
+/* v0.4.3 — transiciones */
+.offers-window{transform-origin:center center;will-change:transform,opacity}
+.offers-window.transition-fade.transition-active{animation:offerFade .7s ease both}
+@keyframes offerFade{from{opacity:0}to{opacity:1}}
+.offers-window.transition-slide-left.transition-active{animation:offerSlideLeft .72s cubic-bezier(.22,.7,.25,1) both}
+@keyframes offerSlideLeft{from{opacity:0;transform:translateX(7vw)}to{opacity:1;transform:translateX(0)}}
+.offers-window.transition-slide-right.transition-active{animation:offerSlideRight .72s cubic-bezier(.22,.7,.25,1) both}
+@keyframes offerSlideRight{from{opacity:0;transform:translateX(-7vw)}to{opacity:1;transform:translateX(0)}}
+.offers-window.transition-zoom-in.transition-active{animation:offerZoomIn .7s ease both}
+@keyframes offerZoomIn{from{opacity:0;transform:scale(.91)}to{opacity:1;transform:scale(1)}}
+.offers-window.transition-zoom-out.transition-active{animation:offerZoomOut .7s ease both}
+@keyframes offerZoomOut{from{opacity:0;transform:scale(1.08)}to{opacity:1;transform:scale(1)}}
+.offers-window.transition-rise.transition-active{animation:offerRise .72s ease both}
+@keyframes offerRise{from{opacity:0;transform:translateY(5vh)}to{opacity:1;transform:translateY(0)}}
+.offers-window.transition-drop.transition-active{animation:offerDrop .72s ease both}
+@keyframes offerDrop{from{opacity:0;transform:translateY(-5vh)}to{opacity:1;transform:translateY(0)}}
+
+/* ticker más lento */
+.ticker-track.running[data-speed="slow"]{animation-duration:70s!important}
+.ticker-track.running[data-speed="normal"]{animation-duration:48s!important}
+.ticker-track.running[data-speed="fast"]{animation-duration:30s!important}
+
+/* v0.5 — AVISOS + CARRUSEL */
+.notice-cta {
+  margin-top: clamp(12px,1.4vh,18px);
+  padding: clamp(12px,1vw,16px);
+  border-radius: 16px;
+  color: white;
+  background: linear-gradient(90deg,#2563eb,#7c3aed);
+  font-size: clamp(.9rem,1.05vw,1.2rem);
+  font-weight: 950;
+  text-align: center;
+  letter-spacing: .03em;
+}
+.compact-offer-card.notice-card .compact-label { background: linear-gradient(90deg,#7c3aed,#db2777); color:white; }
+.compact-offer-card.notice-card .compact-offer-copy h2 { white-space: normal !important; line-height: 1.04 !important; }
+.compact-offer-card.notice-card .compact-offer-copy > p { -webkit-line-clamp: 5 !important; font-size: clamp(.88rem,1.05vw,1.2rem) !important; }
+.compact-image-frame.no-media { background: linear-gradient(145deg,#eef2ff,#fdf2f8); position:relative; }
+.compact-image-frame.no-media::after { content:"AVISO"; color:#7c3aed; font-size:clamp(2rem,3vw,4rem); font-weight:950; letter-spacing:.12em; opacity:.16; }
+.list-media-placeholder { display:grid; width:72px; height:72px; place-items:center; border-radius:12px; background:#ede9fe; color:#6d28d9; font-size:.72rem; font-weight:950; }
+
+/* Carrusel 3D: el par entra como una tarjeta de carrusel. */
+.offers-window.transition-carousel { perspective: 1600px; }
+.offers-window.transition-carousel.transition-active { animation: offerCarousel .88s cubic-bezier(.2,.72,.2,1) both; }
+@keyframes offerCarousel {
+  0% { opacity:0; transform:translateX(13vw) rotateY(-10deg) scale(.94); }
+  65% { opacity:1; transform:translateX(-1vw) rotateY(1.5deg) scale(1.005); }
+  100% { opacity:1; transform:translateX(0) rotateY(0) scale(1); }
+}
+
+
+/* ==========================================================
+   PUBLI SCREEN v0.6 — TEMAS Y FONDOS PERSONALIZADOS
+   ========================================================== */
+
+.background-mode-panel {
+  display: block;
+}
+
+.preset-theme-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.preset-theme-card {
+  display: grid;
+  gap: 8px;
+  padding: 9px;
+  overflow: hidden;
+  border: 3px solid transparent;
+  border-radius: 18px;
+  color: #0f172a;
+  background: #eef3f9;
+  cursor: pointer;
+  text-align: left;
+  transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+
+.preset-theme-card:hover {
+  transform: translateY(-2px);
+}
+
+.preset-theme-card.selected {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, .12);
+}
+
+.preset-theme-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 11px;
+  object-fit: cover;
+  object-position: center;
+  background: #0f172a;
+}
+
+.preset-theme-card span {
+  padding: 0 4px 3px;
+  font-size: .95rem;
+  font-weight: 900;
+}
+
+.theme-preview {
+  min-height: 260px;
+  overflow: hidden;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.theme-preview img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 430px;
+  object-fit: contain;
+}
+
+.color-control-row {
+  display: grid;
+  grid-template-columns: 100px minmax(0, 1fr);
+  gap: 12px;
+}
+
+.color-control-row input[type="color"] {
+  width: 100%;
+  min-height: 58px;
+  padding: 4px;
+}
+
+@media (min-width: 900px) {
+  .preset-theme-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .preset-theme-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ==========================================================
+   PUBLI SCREEN v0.6.1 — FIX ÚLTIMA PÁGINA / AVISOS
+   ========================================================== */
+
+/* A single notice uses the full centered card cleanly. */
+.offers-window.single-offer .compact-offer-card.notice-card {
+  width: min(100%, 1040px) !important;
+  grid-template-columns: minmax(0, 42%) minmax(0, 58%) !important;
+}
+
+.offers-window.single-offer .compact-offer-card.notice-card .compact-offer-copy {
+  padding: clamp(22px, 2.2vw, 40px) !important;
+}
+
+.offers-window.single-offer .compact-offer-card.notice-card .compact-offer-copy h2 {
+  font-size: clamp(2rem, 3vw, 4rem) !important;
+  white-space: normal !important;
+}
+
+.offers-window.single-offer .compact-offer-card.notice-card .compact-offer-copy > p {
+  -webkit-line-clamp: 6 !important;
+  font-size: clamp(1rem, 1.35vw, 1.55rem) !important;
+  line-height: 1.2 !important;
+}
+
+.offers-window.single-offer .compact-offer-card.notice-card .notice-cta {
+  margin-top: clamp(16px, 2vh, 24px) !important;
+  padding: clamp(14px, 1.2vw, 20px) !important;
+  font-size: clamp(1rem, 1.35vw, 1.5rem) !important;
+}
+
+/* When a notice has no image, give the message more room. */
+.offers-window.single-offer .compact-offer-card.notice-card:has(.compact-image-frame.no-media) {
+  grid-template-columns: 1fr !important;
+}
+
+.offers-window.single-offer .compact-offer-card.notice-card:has(.compact-image-frame.no-media) .compact-image-frame {
+  display: none !important;
+}
+
+
+/* ==========================================================
+   PUBLI SCREEN v0.6.2 — AVISO ÚNICO LIMPIO
+   Corrige colisiones con display:* !important.
+   ========================================================== */
+
+/* Regla de máxima prioridad: si JS marca algo como hidden,
+   jamás debe reaparecer por otra regla CSS posterior. */
+.tv-offer-view .hidden,
+.tv-offer-view .compact-offer-card.hidden,
+.tv-offer-view .compact-prices.hidden,
+.tv-offer-view .compact-saving.hidden,
+.tv-offer-view .notice-cta.hidden,
+.tv-offer-view img.hidden {
+  display: none !important;
+}
+
+/* Cuando la última página tiene una sola publicación,
+   no se reserva espacio para una segunda tarjeta. */
+.offers-window.single-offer {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1080px) !important;
+  grid-template-rows: minmax(0, 1fr) !important;
+  justify-content: center !important;
+  align-items: stretch !important;
+}
+
+.offers-window.single-offer #offerCard1 {
+  grid-column: 1 !important;
+  grid-row: 1 !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.offers-window.single-offer #offerCard2 {
+  display: none !important;
+}
+
+/* AVISO solo: imagen + contenido informativo, sin restos de precios. */
+.offers-window.single-offer .notice-card {
+  grid-template-columns: minmax(0, 48%) minmax(0, 52%) !important;
+  max-width: 1080px !important;
+  overflow: hidden !important;
+}
+
+.offers-window.single-offer .notice-card .compact-offer-copy {
+  display: flex !important;
+  padding: clamp(24px, 2.4vw, 44px) !important;
+  justify-content: center !important;
+}
+
+.offers-window.single-offer .notice-card .compact-label {
+  align-self: flex-start !important;
+}
+
+.offers-window.single-offer .notice-card .compact-offer-copy h2 {
+  display: block !important;
+  margin: clamp(12px, 1.4vh, 18px) 0 10px !important;
+  overflow: visible !important;
+  white-space: normal !important;
+  text-overflow: clip !important;
+  font-size: clamp(2rem, 3vw, 4rem) !important;
+  line-height: 1.02 !important;
+}
+
+.offers-window.single-offer .notice-card .compact-offer-copy > p {
+  display: block !important;
+  margin: 0 !important;
+  overflow: visible !important;
+  color: #475569 !important;
+  font-size: clamp(1rem, 1.35vw, 1.55rem) !important;
+  font-weight: 750 !important;
+  line-height: 1.25 !important;
+}
+
+.offers-window.single-offer .notice-card .notice-cta {
+  display: block !important;
+  margin-top: clamp(18px, 2.2vh, 28px) !important;
+  padding: clamp(14px, 1.25vw, 20px) !important;
+  border-radius: 18px !important;
+  font-size: clamp(1rem, 1.35vw, 1.55rem) !important;
+}
+
+/* La imagen del aviso se mantiene completa. */
+.offers-window.single-offer .notice-card .compact-image-frame {
+  height: 100% !important;
+  min-height: 0 !important;
+  padding: clamp(18px, 2vw, 34px) !important;
+}
+
+.offers-window.single-offer .notice-card .compact-image-frame img {
+  width: auto !important;
+  height: auto !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+}
+
+/* Aviso sin imagen: usa todo el ancho para el mensaje. */
+.offers-window.single-offer .notice-card:has(.compact-image-frame.no-media) {
+  grid-template-columns: 1fr !important;
+}
+
+.offers-window.single-offer .notice-card:has(.compact-image-frame.no-media) .compact-image-frame {
+  display: none !important;
+}
+
+@media (max-height: 800px) {
+  .offers-window.single-offer {
+    grid-template-columns: minmax(0, 980px) !important;
+  }
+
+  .offers-window.single-offer .notice-card {
+    max-width: 980px !important;
+  }
+
+  .offers-window.single-offer .notice-card .compact-offer-copy {
+    padding: 18px 24px !important;
+  }
+
+  .offers-window.single-offer .notice-card .compact-offer-copy h2 {
+    font-size: clamp(1.8rem, 2.55vw, 3rem) !important;
+  }
+}
+
+
+/* ==========================================================
+   PUBLI SCREEN v0.6.3 — VISIBILIDAD DEFINITIVA
+   IMPORTANTE: estas reglas deben permanecer al FINAL del CSS.
+   ========================================================== */
+
+/* El atributo hidden y la clase hidden mandan sobre cualquier
+   display:grid/flex/block !important de estilos anteriores. */
+html body .hidden,
+html body [hidden] {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+/* En AVISOS jamás deben existir bloques de precio. */
+html body .compact-offer-card.notice-card .compact-prices,
+html body .compact-offer-card.notice-card .compact-saving {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+/* En una página de una sola publicación, la tarjeta 2 queda
+   anulada aunque alguna regla antigua intente revivirla. */
+html body .offers-window.single-offer #offerCard2,
+html body .offers-window.single-offer .compact-offer-card:nth-child(2) {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+/* La tarjeta única ocupa una sola fila y nunca crea un hueco fantasma. */
+html body .offers-window.single-offer {
+  grid-template-columns: minmax(0, 1080px) !important;
+  grid-template-rows: minmax(0, 1fr) !important;
+  grid-auto-rows: 0 !important;
+  justify-content: center !important;
+  align-items: stretch !important;
+}
+
+/* Aviso acompañado de otra oferta: conserva formato de media pantalla,
+   pero sólo con texto informativo y CTA. */
+html body .compact-offer-card.notice-card .notice-cta {
+  display: block !important;
+  visibility: visible !important;
+}
+
+/* v0.7 — avisos separados, resumen 6 y ofertas 2 en 2 */
+.content-stage{position:absolute;top:33.2vh;right:2.6vw;bottom:10.8vh;left:2.6vw;z-index:5;min-width:0;min-height:0}
+.content-stage>.offers-window{position:absolute!important;inset:0!important}
+.content-stage .hidden,.content-stage [hidden]{display:none!important;visibility:hidden!important}
+/* X roja sobre ANTES */
+.compact-before::before,.compact-before::after{content:""!important;position:absolute!important;top:50%!important;left:12%!important;right:12%!important;height:5px!important;border-radius:999px!important;background:#ef4444!important;display:block!important;z-index:4!important}
+.compact-before::before{transform:rotate(17deg)!important}.compact-before::after{transform:rotate(-17deg)!important}
+/* Aviso completo */
+.notice-screen{display:grid;grid-template-columns:minmax(0,46%) minmax(0,54%);width:100%;height:100%;overflow:hidden;border:1px solid rgba(255,255,255,.8);border-radius:clamp(24px,2.2vw,38px);background:rgba(255,255,255,.975);box-shadow:0 18px 45px rgba(0,0,0,.22)}
+.notice-image-frame{display:grid;min-width:0;min-height:0;padding:clamp(18px,2vw,34px);place-items:center;overflow:hidden;background:#fff}.notice-image-frame img{display:block;width:auto;height:auto;max-width:100%;max-height:100%;object-fit:contain;object-position:center}.notice-image-frame.no-media{display:none!important}.notice-screen:has(.notice-image-frame.no-media){grid-template-columns:1fr!important}
+.notice-copy{display:flex;min-width:0;min-height:0;padding:clamp(28px,3vw,54px);flex-direction:column;justify-content:center;overflow:hidden}.notice-label{width:fit-content;padding:9px 15px;border-radius:10px;color:#fff;background:linear-gradient(135deg,#7c3aed,#db2777);font-size:clamp(.8rem,1vw,1.15rem);font-weight:950;letter-spacing:.08em}.notice-copy h1{margin:clamp(16px,2vh,26px) 0 12px;color:#07142d;font-size:clamp(2.8rem,5vw,6.4rem);line-height:.95}.notice-copy p{margin:0;color:#475569;font-size:clamp(1.1rem,1.8vw,2.15rem);font-weight:750;line-height:1.28}.notice-cta-full{width:fit-content;margin-top:clamp(22px,3vh,36px);padding:clamp(14px,1.4vw,22px) clamp(20px,2vw,32px);border-radius:18px;color:#fff;background:linear-gradient(135deg,#2563eb,#7c3aed);font-size:clamp(1rem,1.4vw,1.6rem);font-weight:950}
+/* Resumen */
+.summary-screen,.summary-grid{width:100%;height:100%;min-width:0;min-height:0}.summary-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));gap:clamp(12px,1.2vw,22px)}.summary-offer-card{display:grid;grid-template-columns:minmax(0,50%) minmax(0,50%);min-width:0;min-height:0;overflow:hidden;border:1px solid rgba(255,255,255,.78);border-radius:clamp(16px,1.4vw,24px);background:rgba(255,255,255,.975);box-shadow:0 14px 30px rgba(0,0,0,.18)}.summary-image-frame{display:grid;min-width:0;min-height:0;padding:clamp(8px,.8vw,14px);place-items:center;overflow:hidden;background:#fff}.summary-image-frame img{display:block;width:auto;height:auto;max-width:100%;max-height:100%;object-fit:contain}.summary-card-copy{display:flex;min-width:0;min-height:0;padding:clamp(10px,.9vw,16px);flex-direction:column;justify-content:center;overflow:hidden}.summary-card-copy h3{margin:0 0 7px;overflow:hidden;color:#07142d;text-overflow:ellipsis;white-space:nowrap;font-size:clamp(1rem,1.3vw,1.65rem)}.summary-price-line{display:grid;gap:5px}.summary-price-line strong{font-size:clamp(1.55rem,2.1vw,2.8rem);line-height:1}.summary-before{position:relative;width:fit-content;color:#64748b;font-size:clamp(.78rem,.9vw,1.05rem);font-weight:800}.summary-before::before,.summary-before::after{content:"";position:absolute;top:50%;left:-4%;right:-4%;height:3px;border-radius:999px;background:#ef4444}.summary-before::before{transform:rotate(13deg)}.summary-before::after{transform:rotate(-13deg)}.summary-card-copy small{margin-top:7px;color:#08783f;font-size:clamp(.7rem,.82vw,.95rem);font-weight:900}
+.content-stage.transition-active{animation:contentFade .65s ease both}@keyframes contentFade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@media(max-height:800px){.content-stage{top:32.4vh;right:2.2vw;bottom:9.6vh;left:2.2vw}.notice-copy{padding:20px 28px}.notice-copy h1{font-size:clamp(2.2rem,4vw,4.6rem)}.notice-copy p{font-size:clamp(.95rem,1.45vw,1.55rem)}.summary-grid{gap:10px}.summary-card-copy{padding:8px 10px}.summary-card-copy h3{font-size:clamp(.9rem,1.1vw,1.25rem)}.summary-price-line strong{font-size:clamp(1.35rem,1.7vw,2rem)}}
+
+
+/* ==========================================================
+   PUBLI SCREEN v0.7.1 — IMÁGENES DE AVISO COMPLETAS
+   Sólo afecta las pantallas de AVISO.
+   ========================================================== */
+
+/* Más aire alrededor de la imagen del aviso. */
+.notice-screen {
+  grid-template-columns: minmax(0, 44%) minmax(0, 56%) !important;
+}
+
+.notice-image-frame {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  height: 100% !important;
+  padding: clamp(34px, 4vw, 70px) !important;
+  overflow: hidden !important;
+  background: #fff !important;
+}
+
+/* La imagen nunca se recorta ni se amplía más allá del área segura. */
+.notice-image-frame img {
+  display: block !important;
+  width: auto !important;
+  height: auto !important;
+  max-width: 88% !important;
+  max-height: 88% !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+  margin: auto !important;
+}
+
+/* Imágenes muy verticales: un poco más de protección. */
+@media (orientation: landscape) {
+  .notice-image-frame img {
+    max-width: 86% !important;
+    max-height: 84% !important;
+  }
+}
+
+/* TVs 720p / 768p: mantener margen suficiente para no cortar. */
+@media (max-height: 800px) {
+  .notice-screen {
+    grid-template-columns: minmax(0, 43%) minmax(0, 57%) !important;
+  }
+
+  .notice-image-frame {
+    padding: 28px 38px !important;
+  }
+
+  .notice-image-frame img {
+    max-width: 84% !important;
+    max-height: 82% !important;
+  }
+}
+
+
+/* ==========================================================
+   PUBLI SCREEN v0.7.2 — TRANSICIONES UNIFICADAS
+   AVISOS + RESUMEN + OFERTAS usan el mismo modo seleccionado.
+   ========================================================== */
+
+.content-stage {
+  transform-origin: center center !important;
+  will-change: transform, opacity !important;
+  perspective: 1600px !important;
+}
+
+/* Anula la animación genérica anterior. */
+.content-stage.transition-active {
+  animation: none !important;
+}
+
+/* DESVANECIMIENTO */
+.content-stage.transition-fade.transition-active {
+  animation: stageFade .72s ease both !important;
+}
+@keyframes stageFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* DESPLAZAMIENTO LATERAL */
+.content-stage.transition-slide-left.transition-active {
+  animation: stageSlideLeft .78s cubic-bezier(.22,.7,.25,1) both !important;
+}
+@keyframes stageSlideLeft {
+  from { opacity: 0; transform: translateX(8vw); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.content-stage.transition-slide-right.transition-active {
+  animation: stageSlideRight .78s cubic-bezier(.22,.7,.25,1) both !important;
+}
+@keyframes stageSlideRight {
+  from { opacity: 0; transform: translateX(-8vw); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* ZOOM */
+.content-stage.transition-zoom-in.transition-active {
+  animation: stageZoomIn .72s ease both !important;
+}
+@keyframes stageZoomIn {
+  from { opacity: 0; transform: scale(.90); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.content-stage.transition-zoom-out.transition-active {
+  animation: stageZoomOut .72s ease both !important;
+}
+@keyframes stageZoomOut {
+  from { opacity: 0; transform: scale(1.09); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* ARRIBA / ABAJO */
+.content-stage.transition-rise.transition-active {
+  animation: stageRise .78s ease both !important;
+}
+@keyframes stageRise {
+  from { opacity: 0; transform: translateY(6vh); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.content-stage.transition-drop.transition-active {
+  animation: stageDrop .78s ease both !important;
+}
+@keyframes stageDrop {
+  from { opacity: 0; transform: translateY(-6vh); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* CARRUSEL 3D */
+.content-stage.transition-carousel.transition-active {
+  animation: stageCarousel .92s cubic-bezier(.2,.72,.2,1) both !important;
+  transform-style: preserve-3d !important;
+}
+@keyframes stageCarousel {
+  0% {
+    opacity: 0;
+    transform: translateX(11vw) rotateY(-12deg) scale(.94);
+  }
+  65% {
+    opacity: 1;
+    transform: translateX(-1vw) rotateY(1.5deg) scale(1.005);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) rotateY(0deg) scale(1);
+  }
+}
+
+/* Las ofertas ya no animan por separado: todo el stage se mueve unido. */
+.content-stage .offers-window.transition-active {
+  animation: none !important;
+}
+
+/* Fallback seguro */
+.content-stage.transition-active:not(.transition-fade):not(.transition-slide-left):not(.transition-slide-right):not(.transition-zoom-in):not(.transition-zoom-out):not(.transition-rise):not(.transition-drop):not(.transition-carousel) {
+  animation: stageFade .72s ease both !important;
+}
+
+
+/* ==========================================================
+   PUBLI SCREEN v0.7.3 — CARRUSEL CONTINUO REAL
+   Dos pantallas coexisten durante la transición:
+   la actual sale mientras la siguiente entra.
+   ========================================================== */
+
+.continuous-carousel-layer {
+  position: absolute;
+  top: 33.2vh;
+  right: 2.6vw;
+  bottom: 10.8vh;
+  left: 2.6vw;
+  z-index: 40;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.continuous-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  will-change: transform, opacity;
+}
+
+.continuous-slide > .content-stage {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  transform: none !important;
+  animation: none !important;
+}
+
+.continuous-slide.current-slide {
+  transform: translateX(0);
+}
+
+.continuous-slide.next-slide {
+  transform: translateX(100%);
+}
+
+.continuous-carousel-layer.playing .current-slide {
+  animation: continuousCurrentOut .9s cubic-bezier(.22,.7,.2,1) forwards;
+}
+
+.continuous-carousel-layer.playing .next-slide {
+  animation: continuousNextIn .9s cubic-bezier(.22,.7,.2,1) forwards;
+}
+
+@keyframes continuousCurrentOut {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
+
+@keyframes continuousNextIn {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+/* La clase existe para que el selector de transición pueda aplicarse
+   sin activar una animación de entrada normal. */
+.content-stage.transition-continuous-carousel.transition-active {
+  animation: none !important;
+}
+
+/* Evita scrolls o barras durante el solapamiento. */
+.continuous-carousel-layer,
+.continuous-carousel-layer * {
+  box-sizing: border-box;
+}
+
+/* Ajustes 720p / 768p iguales al contentStage real. */
+@media (max-height: 800px) {
+  .continuous-carousel-layer {
+    top: 32.4vh;
+    right: 2.2vw;
+    bottom: 9.6vh;
+    left: 2.2vw;
+  }
+}
+
+/* v0.7.4 Carrusel continuo corregido */
+.continuous-carousel-layer{display:none!important}
+.continuous-carousel-host{
+  position:absolute;top:33.2vh;right:2.6vw;bottom:10.8vh;left:2.6vw;
+  z-index:40;overflow:hidden;pointer-events:none;
+}
+.carousel-panel{position:absolute;inset:0;width:100%;height:100%;transform:translateX(100%);will-change:transform}
+.carousel-panel.is-active{transform:translateX(0)}
+.carousel-panel.is-next{transform:translateX(100%)}
+.carousel-panel.move-out{animation:ccOut .9s cubic-bezier(.22,.72,.2,1) forwards}
+.carousel-panel.move-in{animation:ccIn .9s cubic-bezier(.22,.72,.2,1) forwards}
+@keyframes ccOut{from{transform:translateX(0)}to{transform:translateX(-100%)}}
+@keyframes ccIn{from{transform:translateX(100%)}to{transform:translateX(0)}}
+.carousel-panel>.content-stage{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;visibility:visible!important;transform:none!important;animation:none!important}
+.content-stage.transition-continuous-carousel.transition-active{animation:none!important}
+@media(max-height:800px){.continuous-carousel-host{top:32.4vh;right:2.2vw;bottom:9.6vh;left:2.2vw}}
+
+
+/* ==========================================================
+   PUBLI SCREEN v0.8 — CONTROLES DE PRESENTACIÓN + PREVIEW
+   ========================================================== */
+
+.three-columns{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:14px;
+}
+
+.presentation-controls-card{
+  display:grid;
+  gap:12px;
+  margin-top:8px;
+  padding:18px;
+  border:1px solid #dbe4f0;
+  border-radius:18px;
+  background:#f8fafc;
+}
+
+.presentation-controls-card .eyebrow{
+  margin-bottom:0;
+}
+
+.summary-switch{
+  align-items:flex-start;
+  padding:12px 14px;
+  border-radius:14px;
+  background:#fff;
+  border:1px solid #e2e8f0;
+}
+
+.summary-switch span{
+  display:grid;
+  gap:3px;
+}
+
+.summary-switch small{
+  color:#64748b;
+  font-weight:600;
+  line-height:1.3;
+}
+
+.duration-grid label{
+  font-size:.9rem;
+}
+
+.appearance-actions{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+.preview-modal{
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  display:grid;
+  padding:20px;
+  place-items:center;
+  background:rgba(2,6,23,.72);
+  backdrop-filter:blur(8px);
+}
+
+.preview-dialog{
+  width:min(96vw,1280px);
+  max-height:94vh;
+  padding:14px;
+  overflow:auto;
+  border-radius:24px;
+  background:#fff;
+  box-shadow:0 30px 80px rgba(0,0,0,.35);
+}
+
+.preview-toolbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  padding:4px 4px 12px;
+}
+
+.preview-toolbar>div{
+  display:grid;
+  gap:3px;
+}
+
+.preview-toolbar span{
+  color:#64748b;
+  font-size:.9rem;
+}
+
+.preview-frame-wrap{
+  width:100%;
+  aspect-ratio:16/9;
+  overflow:hidden;
+  border-radius:18px;
+  background:#020617;
+}
+
+.preview-frame-wrap iframe{
+  display:block;
+  width:100%;
+  height:100%;
+  border:0;
+  background:#020617;
+}
+
+body.preview-open{
+  overflow:hidden!important;
+}
+
+/* Preview embebido: no modifica layout, sólo evita márgenes externos. */
+body.preview-tv{
+  margin:0!important;
+}
+
+@media(max-width:700px){
+  .three-columns{
+    grid-template-columns:1fr;
+  }
+  .appearance-actions{
+    grid-template-columns:1fr;
+  }
+  .preview-modal{
+    padding:8px;
+  }
+  .preview-dialog{
+    width:100%;
+    border-radius:16px;
+  }
+  .preview-toolbar{
+    align-items:flex-start;
+  }
+}
+
+
+/* ==========================================================
+   PUBLI SCREEN v0.8.1 — RECUPERACIÓN DE TV
+   ========================================================== */
+
+.recovery-help {
+  margin-top: 10px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: #eef6ff;
+  color: #475569;
+  font-size: .95rem;
+  line-height: 1.45;
+}
+
+.tv-recovery-code {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .35em;
+  margin-top: .15em;
+  color: rgba(255,255,255,.76);
+  font-size: clamp(.48rem, .58vw, .7rem);
+  font-weight: 800;
+  letter-spacing: .08em;
+  white-space: nowrap;
+}
+
+.tv-recovery-code strong {
+  color: #fff;
+  font-size: 1.05em;
+  letter-spacing: .12em;
+}
+
+.tv-recovery-code.standalone {
+  position: absolute;
+  top: 1.2vh;
+  right: 10vw;
+  z-index: 30;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(8,20,44,.72);
+  backdrop-filter: blur(8px);
+}
