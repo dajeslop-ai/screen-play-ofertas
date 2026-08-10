@@ -305,8 +305,26 @@ async function registerScreen(){
   else showPairing();
   subscribeScreen();
 }
-function showPairing(){clearTimeout(timer);updateRecoveryCode();pairView.classList.remove("hidden");emptyView.classList.add("hidden");offerView.classList.add("hidden");pairingCode.textContent=screen.pairing_code;pairStatus.textContent="Esperando conexión…"}
-async function enterLinkedMode(){pairView.classList.add("hidden");applyDisplaySettings();await loadPlaylist();subscribePlaylist()}
+function showPairing(){
+  clearTimeout(timer);
+  updateRecoveryCode();
+  pairView.classList.remove("hidden");
+  pairView.hidden=false;
+  pairView.style.removeProperty("display");
+  emptyView.classList.add("hidden");
+  offerView.classList.add("hidden");
+  pairingCode.textContent=screen.pairing_code;
+  pairStatus.textContent="Esperando conexión…";
+}
+async function enterLinkedMode(){
+  clearTimeout(timer);
+  pairView.classList.add("hidden");
+  pairView.hidden=true;
+  pairView.style.setProperty("display","none","important");
+  applyDisplaySettings();
+  await loadPlaylist();
+  subscribePlaylist();
+}
 async function loadPlaylist(){const {data,error}=await supabase.from("screen_playlist_items").select("*").eq("screen_id",screen.id).eq("is_active",true).order("position",{ascending:true}).order("created_at",{ascending:true});if(error){console.error(error);return}playlist=data||[];presentationPages=buildPresentationPages(playlist);if(!presentationPages.length){clearTimeout(timer);currentPageIndex=0;hideAll();emptyView.classList.remove("hidden");offerView.classList.add("hidden");return}if(currentPageIndex>=presentationPages.length)currentPageIndex=0;emptyView.classList.add("hidden");offerView.classList.remove("hidden");renderCurrentPage()}
 function subscribeScreen(){
   screenChannel?.unsubscribe();
@@ -316,6 +334,7 @@ function subscribeScreen(){
       "postgres_changes",
       {event:"UPDATE",schema:"public",table:"screens",filter:`id=eq.${screen.id}`},
       async({new:updated})=>{
+        const wasLinked = screen?.is_linked === true;
         screen=updated;
         updateRecoveryCode();
         applyDisplaySettings();
@@ -326,9 +345,22 @@ function subscribeScreen(){
           return;
         }
 
+        // FIX v0.8.2:
+        // Si la TV acaba de pasar de NO vinculada a vinculada,
+        // hay que entrar realmente al modo TV y cargar la playlist.
+        if(!wasLinked){
+          await enterLinkedMode();
+          return;
+        }
+
+        // Si ya estaba vinculada, solo refrescamos configuración/páginas.
         presentationPages=buildPresentationPages(playlist);
         if(currentPageIndex>=presentationPages.length)currentPageIndex=0;
-        if(presentationPages.length) renderCurrentPage();
+        if(presentationPages.length){
+          emptyView.classList.add("hidden");
+          offerView.classList.remove("hidden");
+          renderCurrentPage();
+        }
       }
     )
     .subscribe()

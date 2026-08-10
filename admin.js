@@ -146,6 +146,7 @@ function showUnlinkedUI() {
 pairForm.addEventListener("submit", async (event) => {
   event.preventDefault();
   clearMessage(pairMessage);
+  showMessage(pairMessage, "Conectando con la televisión…");
 
   const code = pairCode.value.replace(/\D/g, "").slice(0, 6);
   if (code.length !== 6) {

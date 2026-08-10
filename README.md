@@ -1,31 +1,36 @@
-# PUBLI SCREEN — REINICIO v0.8.1
+# PUBLI SCREEN — REINICIO v0.8.2
 
-## Recuperar una TV ya vinculada
+## Vinculación corregida
 
-La televisión ahora muestra siempre un `Código TV` de seis dígitos de forma discreta.
+Se corrige un error introducido en v0.8:
 
-Si el teléfono pierde la sesión del navegador:
+La TV recibía el cambio `is_linked = true` desde Supabase, pero no ejecutaba
+`enterLinkedMode()`. Por eso permanecía en “Esperando conexión…” aunque el
+código fuera correcto.
 
-1. Abre `admin.html`.
-2. Escribe el Código TV que aparece en la televisión.
-3. Pulsa `Vincular televisión`.
+Ahora:
 
-La app vuelve a tomar control de la MISMA pantalla de Supabase.
+1. La TV muestra su código.
+2. Se escribe el código en admin.html.
+3. Supabase marca la pantalla como vinculada.
+4. La TV detecta el cambio en tiempo real.
+5. La TV cierra automáticamente la pantalla de vinculación.
+6. Carga la playlist existente y continúa mostrando la cartelera.
 
-No se borran:
-- ofertas;
-- avisos;
-- imágenes;
-- fondos;
-- temas;
-- configuración;
-- lista de reproducción.
+También conserva la recuperación de TV de v0.8.1.
 
-La vinculación genera un nuevo `control_token` para el teléfono, pero conserva el mismo
-registro de pantalla y todo el contenido asociado.
+## No se modifica
+- Ofertas
+- Avisos
+- Imágenes
+- Fondos
+- Temas
+- Carrusel continuo
+- Resumen
+- Duraciones
+- Supabase
 
-## Supabase
 No requiere SQL nuevo.
 
 Commit sugerido:
-`PUBLI SCREEN reinicio v0.8.1 - Recuperacion de TV`
+`PUBLI SCREEN reinicio v0.8.2 - Vinculacion corregida`
